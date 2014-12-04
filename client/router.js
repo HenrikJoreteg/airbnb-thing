@@ -23,7 +23,7 @@ module.exports = Router.extend({
     login: function () {
         var baseUrl = 'http://wolves.technology/authorize?';
         var query = {
-            redirect_uri: encodeURIComponent(window.location.origin + '/auth/callback')
+            redirect_uri: window.location.origin + '/auth/callback'
         };
 
         window.location = baseUrl + qs.stringify(query);
