@@ -17,7 +17,9 @@ module.exports = Router.extend({
     },
 
     howls: function () {
-        this.trigger('page', new HowlsPage());
+        this.trigger('page', new HowlsPage({
+            model: app.me
+        }));
     },
 
     login: function () {

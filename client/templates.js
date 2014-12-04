@@ -27,7 +27,7 @@
         var jade_interp;
         var locals_for_with = locals || {};
         (function(model) {
-            buf.push('<div class="well howl"><p>' + jade.escape(null == (jade_interp = model.createdAt) ? "" : jade_interp) + "</p><p>" + jade.escape(null == (jade_interp = model.content) ? "" : jade_interp) + "</p></div>");
+            buf.push('<div class="well howl"><p>' + jade.escape(null == (jade_interp = model.createdAt) ? "" : jade_interp) + "</p><pre>" + jade.escape(null == (jade_interp = model.content) ? "" : jade_interp) + "</pre></div>");
         }).call(this, "model" in locals_for_with ? locals_for_with.model : typeof model !== "undefined" ? model : undefined);
         return buf.join("");
     };
@@ -38,8 +38,19 @@
     };
 
     // pages/howls.jade compiled template
-    templatizer["pages"]["howls"] = function tmpl_pages_howls() {
-        return '<section class="page howls"><h1>Howls</h1><div data-hook="howl-container"></div></section>';
+    templatizer["pages"]["howls"] = function tmpl_pages_howls(locals) {
+        var buf = [];
+        var jade_mixins = {};
+        var jade_interp;
+        var locals_for_with = locals || {};
+        (function(model) {
+            buf.push('<section class="page howls"><h1>Howls</h1>');
+            if (model.loggedIn) {
+                buf.push('<textarea data-hook="new-howl" placeholder="awooooo!"></textarea><button data-hook="action-howl">howl!</button>');
+            }
+            buf.push('<div data-hook="howl-container"></div></section>');
+        }).call(this, "model" in locals_for_with ? locals_for_with.model : typeof model !== "undefined" ? model : undefined);
+        return buf.join("");
     };
 
     return templatizer;

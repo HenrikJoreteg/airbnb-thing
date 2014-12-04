@@ -1,4 +1,8 @@
 section.page.howls
   h1 Howls
 
+  if (model.loggedIn)
+    textarea(data-hook='new-howl', placeholder='awooooo!')
+    button(data-hook='action-howl') howl!
+
   div(data-hook='howl-container')
