@@ -8,6 +8,7 @@
     "bootstrap": "^3.3.1",
     "browserify": "^7.0.0",
     "domready": "^1.0.7",
+    "getconfig": "^1.0.0",
     "hapi": "^7.5.2",
     "moonboots_hapi": "^3.0.2",
     "templatizer": "^1.1.0"
