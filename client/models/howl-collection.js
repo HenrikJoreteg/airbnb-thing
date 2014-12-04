@@ -4,5 +4,15 @@ var Howl = require('./howl');
 
 module.exports = Collection.extend({
     model: Howl,
-    url: 'http://wolves.technology/howls'
+    initialize: function () {
+        this.fetch();
+    },
+    url: 'http://wolves.technology/howls',
+    ajaxConfig: function () {
+        return {
+            headers: {
+                'Auth-Token': app.me.token
+            }
+        }
+    }
 });

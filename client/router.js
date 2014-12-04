@@ -32,8 +32,8 @@ module.exports = Router.extend({
         var hash = window.location.hash.slice(1);
         var token = qs.parse(hash).access_token;
 
-
-        console.log(token);
+        app.me.token = token;
+        this.redirectTo('/');
     }
 });
 

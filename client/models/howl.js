@@ -7,5 +7,12 @@ module.exports = Model.extend({
         content: 'string',
         createdAt: 'date',
         user: 'object'
+    },
+    ajaxConfig: function () {
+        return {
+            headers: {
+                'Auth-Token': app.me.token
+            }
+        }
     }
 });
