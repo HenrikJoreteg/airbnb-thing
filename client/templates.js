@@ -27,7 +27,7 @@
         var jade_interp;
         var locals_for_with = locals || {};
         (function(model) {
-            buf.push('<div class="well howl"><p>' + jade.escape(null == (jade_interp = model.createdAt) ? "" : jade_interp) + "</p><pre>" + jade.escape(null == (jade_interp = model.content) ? "" : jade_interp) + "</pre></div>");
+            buf.push('<div class="well howl"><p data-hook="time-ago"></p><pre>' + jade.escape(null == (jade_interp = model.content) ? "" : jade_interp) + "</pre></div>");
         }).call(this, "model" in locals_for_with ? locals_for_with.model : typeof model !== "undefined" ? model : undefined);
         return buf.join("");
     };

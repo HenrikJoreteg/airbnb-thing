@@ -3,19 +3,20 @@ var moment = require('moment');
 
 
 module.exports = Model.extend({
+    initialize: function () {
+        this.updateTimeAgo();
+    },
     props: {
         id: 'string',
         content: 'string',
         createdAt: 'date',
         user: 'object'
     },
-    derived: {
-        timeAgo: {
-            deps: ['createdAt'],
-            fn: function () {
-                return moment(this.createdAt).fromNow();
-            }
-        }
+    session: {
+        timeAgo: 'string'
+    },
+    updateTimeAgo: function () {
+        this.timeAgo = moment(this.createdAt).fromNow();
     },
     ajaxConfig: function () {
         return {
