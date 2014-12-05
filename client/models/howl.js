@@ -1,4 +1,5 @@
 var Model = require('ampersand-model');
+var moment = require('moment');
 
 
 module.exports = Model.extend({
@@ -7,6 +8,14 @@ module.exports = Model.extend({
         content: 'string',
         createdAt: 'date',
         user: 'object'
+    },
+    derived: {
+        timeAgo: {
+            deps: ['createdAt'],
+            fn: function () {
+                return moment(this.createdAt).fromNow();
+            }
+        }
     },
     ajaxConfig: function () {
         return {
